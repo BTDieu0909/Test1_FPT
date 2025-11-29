@@ -58,6 +58,11 @@ public class HomeController {
         String maTruong = request.getParameter("maTruong");
         String maNganh = request.getParameter("maNganh");
         String xepLoai = request.getParameter("xepLoai");
+        String namTNStr = request.getParameter("namTN");
+        Integer namTN = null;
+        if(namTNStr != null && !namTNStr.isEmpty()){
+            namTN = Integer.parseInt(namTNStr);
+        }
 
         List<String> errors = new ArrayList<>();
 
@@ -92,6 +97,7 @@ public class HomeController {
         tn.setMaNganh(maNganh);
 
         tn.setXepLoai(xepLoai);
+        tn.setNamTN(namTN);
 
         sinhVienDao.insertSinhVienVaTotNghiep(sv, tn);
 
